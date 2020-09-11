@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\PageBuilder\Model\Wysiwyg\DefaultConfigProvider">
+        <plugin name="integernet-configurable-wysiwyg"
+                type="IntegerNet\ConfigurableWysiwyg\Plugin\WysiwygConfigProviderPlugin" sortOrder="10"/>
+    </type>
+    <type name="Magento\Cms\Model\Wysiwyg\DefaultConfigProvider">
+        <plugin name="integernet-configurable-wysiwyg"
+                type="IntegerNet\ConfigurableWysiwyg\Plugin\WysiwygConfigProviderPlugin" sortOrder="10"/>
+    </type>
+
+    <type name="IntegerNet\ConfigurableWysiwyg\Plugin\WysiwygConfigProviderPlugin">
+        <arguments>
+            <argument name="widgetPluginConfigProvider" xsi:type="array">
+                <item name="default" xsi:type="string">Magento\Widget\Model\Widget\Config</item>
+            </argument>
+            <argument name="additionalSettings" xsi:type="array">
+                <item name="fixed_toolbar_container" xsi:type="string">.pagebuilder-content-type</item>
+                <item name="style_formats" xsi:type="array">
+                    <item name="paragraph" xsi:type="array">
+                        <item name="title" xsi:type="string">Paragraph</item>
+                        <item name="block" xsi:type="string">p</item>
+                    </item>
+                    <item name="heading1" xsi:type="array">
+                        <item name="title" xsi:type="string">Heading 1</item>
+                        <item name="block" xsi:type="string">h1</item>
+                    </item>
+                    <item name="heading2" xsi:type="array">
+                        <item name="title" xsi:type="string">Heading 2</item>
+                        <item name="block" xsi:type="string">h2</item>
+                    </item>
+                    <item name="heading3" xsi:type="array">
+                        <item name="title" xsi:type="string">Heading 3</item>
+                        <item name="block" xsi:type="string">h3</item>
+                    </item>
+                    <item name="heading4" xsi:type="array">
+                        <item name="title" xsi:type="string">Heading 4</item>
+                        <item name="block" xsi:type="string">h4</item>
+                    </item>
+                    <item name="heading5" xsi:type="array">
+                        <item name="title" xsi:type="string">Heading 5</item>
+                        <item name="block" xsi:type="string">h5</item>
+                    </item>
+                    <item name="heading6" xsi:type="array">
+                        <item name="title" xsi:type="string">Heading 6</item>
+                        <item name="block" xsi:type="string">h6</item>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>

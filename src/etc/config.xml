@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <cms>
+            <wysiwyg>
+                <toolbar>undo,redo,formatselect,bold,italic,underline,alignleft,aligncenter,alignright,bullist,numlist,link,table,charmap</toolbar>
+                <add_variable>1</add_variable>
+                <add_widget>1</add_widget>
+                <add_image>1</add_image>
+            </wysiwyg>
+        </cms>
+    </default>
+</config>

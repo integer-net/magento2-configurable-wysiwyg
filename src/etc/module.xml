@@ -3,6 +3,8 @@
         xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
     <module name="IntegerNet_ConfigurableWysiwyg">
         <sequence>
+            <module name="Magento_Cms"/>
+            <module name="Magento_PageBuilder"/>
         </sequence>
     </module>
 </config>
