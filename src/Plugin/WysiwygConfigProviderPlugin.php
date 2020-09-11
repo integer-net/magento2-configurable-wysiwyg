@@ -46,7 +46,7 @@ class WysiwygConfigProviderPlugin
         ConfigProviderInterface $subject,
         \Magento\Framework\DataObject $result
     ) {
-        $toolbar = implode(' ', explode(',', $this->scopeConfig->getValue('admin/wysiwyg/toolbar')));
+        $toolbar = implode(' ', explode(',', $this->scopeConfig->getValue('cms/wysiwyg/toolbar')));
 
         $result->setData(
             'tinymce4',
