@@ -13,8 +13,8 @@
          bootstrap="./framework/bootstrap.php"
         >
     <testsuites>
-        <testsuite name=":module-namespace_:module-name Integration Tests">
-            <directory>../../../vendor/:vendor/:package/tests/unit</directory>
+        <testsuite name="IntegerNet_ConfigurableWysiwyg Integration Tests">
+            <directory>../../../vendor/integer-net/magento2-configurable-wysiwyg/tests/unit</directory>
         </testsuite>
     </testsuites>
     <php>
@@ -23,7 +23,7 @@
     </php>
     <filter>
         <whitelist>
-            <directory suffix=".php">../../../vendor/:vendor/:package/src/*</directory>
+            <directory suffix=".php">../../../vendor/integer-net/magento2-configurable-wysiwyg/src/*</directory>
         </whitelist>
     </filter>
     <listeners>

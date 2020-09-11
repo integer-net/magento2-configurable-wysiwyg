@@ -1,12 +1,12 @@
 {
-    "name": ":vendor/:package",
-    "description": ":description",
+    "name": "integer-net/magento2-configurable-wysiwyg",
+    "description": "Configure the Magento 2 WYSIWYG Editors: Remove buttons, adjust headings, ... ",
     "type": "magento2-module",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author-name",
-            "email": ":author-email"
+            "name": "Andreas von Studnitz",
+            "email": "avs@integer-net.de"
         }
     ],
     "minimum-stability": "stable",
@@ -15,12 +15,12 @@
             "registration.php"
         ],
         "psr-4": {
-            ":module-namespace\\:module-name\\": "src"
+            "IntegerNet\\ConfigurableWysiwyg\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            ":module-namespace\\:module-name\\": "tests/src"
+            "IntegerNet\\ConfigurableWysiwyg\\": "tests/src"
         }
     },
     "repositories": [
@@ -30,8 +30,8 @@
         }
     ],
     "require": {
-        "php": ":php-constraint",
-        "magento/framework": ":framework-constraint"
+        "php": "~7.1||~7.2||~7.3||~7.4",
+        "magento/framework": "^102.0.0||^103.0.0"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master",

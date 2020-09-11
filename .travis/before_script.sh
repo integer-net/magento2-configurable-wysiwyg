@@ -38,7 +38,7 @@ fi
 
 # Add tests/src to autoload-dev on project level
 php -r '$composer_json = json_decode(file_get_contents("composer.json"), true);
-$composer_json["autoload-dev"]["psr-4"][":module-namespace\\:module-name\\"] = "vendor/:vendor/:package/src";
+$composer_json["autoload-dev"]["psr-4"]["IntegerNet\\ConfigurableWysiwyg\\"] = "vendor/integer-net/magento2-configurable-wysiwyg/src";
 file_put_contents("composer.json", json_encode($composer_json));'
 composer dumpautoload
 

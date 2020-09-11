@@ -1,6 +1,6 @@
 <?php
 
-namespace :module-namespace\:module-name;
+namespace IntegerNet\ConfigurableWysiwyg;
 
 use PHPUnit\Framework\TestCase;
 use Magento\TestFramework\Helper\Bootstrap;

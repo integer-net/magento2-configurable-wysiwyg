@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace :module-namespace\:module-name;
+namespace IntegerNet\ConfigurableWysiwyg;
 
 class ExampleClass
 {
