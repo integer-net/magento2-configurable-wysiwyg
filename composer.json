@@ -1,0 +1,53 @@
+{
+    "name": ":vendor/:package",
+    "description": ":description",
+    "type": "magento2-module",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": ":author-name",
+            "email": ":author-email"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            ":module-namespace\\:module-name\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            ":module-namespace\\:module-name\\": "tests/src"
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://repo.magento.com/"
+        }
+    ],
+    "require": {
+        "php": ":php-constraint",
+        "magento/framework": ":framework-constraint"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-master",
+        "phpunit/phpunit": "^6.0|^9.0",
+        "pds/skeleton": "^1.0",
+        "phpro/grumphp": "^v0.21.0",
+        "phpstan/phpstan": "^0.12.0",
+        "squizlabs/php_codesniffer": "^3.5",
+        "magento/magento-coding-standard": "@dev"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard/"
+        ],
+        "post-update-cmd": [
+            "vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard/"
+        ]
+    }
+}
