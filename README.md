@@ -5,7 +5,6 @@
 [![Software License][ico-license]](LICENSE.md)
 ![Supported Magento Versions][ico-compatibility]
 
-[![Coverage Status][ico-scrutinizer]][link-scrutinizer]
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Maintainability][ico-maintainability]][link-maintainability]
 </div>
@@ -61,7 +60,6 @@ The MIT License (MIT). Please see [License File](LICENSE) for more information.
 
 [ico-version]: https://img.shields.io/packagist/v/integer-net/magento2-configurable-wysiwyg.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/integer-net/magento2-configurable-wysiwyg?style=flat-square
 [ico-code-quality]: https://img.shields.io/scrutinizer/g/integer-net/magento2-configurable-wysiwyg.svg?style=flat-square
 [ico-maintainability]: https://img.shields.io/codeclimate/maintainability/integer-net/magento2-configurable-wysiwyg?style=flat-square
 [ico-compatibility]: https://img.shields.io/badge/magento-2.3%20|%202.4-brightgreen.svg?logo=magento&longCache=true&style=flat-square
