@@ -1,4 +1,4 @@
-# IntegerNet_ConfigurableWysiwyg Magento Module
+# IntegerNet_ConfigurableWysiwyg Magento 2 Module
 <div align="center">
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
@@ -14,6 +14,10 @@
 
 Configure the Magento 2 WYSIWYG Editors: Remove buttons, adjust headings, ... 
 
+## Requirements
+
+- Magento 2.3.x or 2.4.x
+
 ## Installation
 
 1. Install it into your Magento 2 project with composer:
@@ -28,7 +32,39 @@ Configure the Magento 2 WYSIWYG Editors: Remove buttons, adjust headings, ...
 
 ## Configuration
 
+You can find all configuration settings for this module in Store -> Configuration -> General -> Content Management:
+
+![Menu](doc/img/menu.png)
+
+These are the new fields and their default settings:
+
+![Configuration fields](doc/img/config_fields.png)
+
+### Toolbar Elements
+
+This defines which icons will be available in the WYSIWYG editors. By default it looks like this:
+
+![Default icons](doc/img/icons_default.png)
+
+If you deselect some of the entries, it can look as follows:
+
+![Reduced Icons](doc/img/icons_reduced.png)
+
+### Show "Insert Variable" button
+
+This button is used to insert variable values into content, like the store name. It's not used very often so it's probably safe to disable that button.
+
+### Show "Insert Widget" button
+
+You only need that button if you are using Widgets (i.e. for inserting product lists, dynamic links or static blocks) in Magento CMS.
+
+### Show "Insert Image" button
+
+You might want to disable this button if you don't want to insert images directly into WYSIWYG fields.
+
 ## Usage
+
+If you change anything on the configuration page and click "Save Config", the settings will be applied to all WYSIWYG fields from then on.
 
 ## Changelog
 
@@ -38,17 +74,9 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
-## Testing
-
-### Unit Tests
-
-```
-vendor/bin/phpunit tests/unit
-```
-
 ## Security
 
-If you discover any security related issues, please email avs@integer-net.de instead of using the issue tracker.
+If you discover any security related issues, please email security@integer-net.de instead of using the issue tracker.
 
 ## Credits
 
