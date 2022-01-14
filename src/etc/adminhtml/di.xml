@@ -9,6 +9,10 @@
         <plugin name="integernet-configurable-wysiwyg"
                 type="IntegerNet\ConfigurableWysiwyg\Plugin\WysiwygConfigProviderPlugin" sortOrder="10"/>
     </type>
+    <type name="Magento\Cms\Model\Wysiwyg\Config">
+        <plugin name="integernet-configurable-wysiwyg"
+                type="IntegerNet\ConfigurableWysiwyg\Plugin\WysiwygConfigPlugin" sortOrder="10"/>
+    </type>
 
     <type name="IntegerNet\ConfigurableWysiwyg\Plugin\WysiwygConfigProviderPlugin">
         <arguments>
