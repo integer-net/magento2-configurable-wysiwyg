@@ -16,6 +16,8 @@ namespace IntegerNet\ConfigurableWysiwyg\Plugin;
 use Magento\Cms\Model\Wysiwyg\CompositeConfigProvider;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\Data\Wysiwyg\ConfigProviderInterface;
+use Magento\Framework\Exception\ConfigurationMismatchException;
+use Psr\Log\LoggerInterface;
 
 class WysiwygConfigProviderPlugin
 {
@@ -31,15 +33,21 @@ class WysiwygConfigProviderPlugin
      * @var CompositeConfigProvider
      */
     private $compositeConfigProvider;
+    /**
+     * @var LoggerInterface
+     */
+    private $logger;
 
     public function __construct(
         array $additionalSettings,
         ScopeConfigInterface $scopeConfig,
-        CompositeConfigProvider $compositeConfigProvider
+        CompositeConfigProvider $compositeConfigProvider,
+        LoggerInterface $logger
     ) {
         $this->additionalSettings = $additionalSettings;
         $this->scopeConfig = $scopeConfig;
         $this->compositeConfigProvider = $compositeConfigProvider;
+        $this->logger = $logger;
     }
 
     public function afterGetConfig(
@@ -48,16 +56,21 @@ class WysiwygConfigProviderPlugin
     ) {
         $toolbar = implode(' ', explode(',', $this->scopeConfig->getValue('cms/wysiwyg/toolbar')));
 
+        try {
+            $tinyMceVersionIdentifier = $this->getTinyMceVersionIdentifier($result);
+        } catch (ConfigurationMismatchException $e) {
+            $this->logger->error($e->getMessage());
+            return $result;
+        }
         $result->setData(
-            'tinymce4',
+            $tinyMceVersionIdentifier,
             [
                 'toolbar' => $toolbar,
-                'plugins' => $result->getData('tinymce4')['plugins'],
-                'content_css' => $result->getData('tinymce4')['content_css'],
+                'plugins' => $result->getData($tinyMceVersionIdentifier)['plugins'],
+                'content_css' => $result->getData($tinyMceVersionIdentifier)['content_css'],
             ]
         );
 
-        //$result->setData('settings', $this->additionalSettings);
         $result->setData('add_variables', $this->scopeConfig->isSetFlag('cms/wysiwyg/add_variable'));
         $result->setData('add_widgets', $this->scopeConfig->isSetFlag('cms/wysiwyg/add_widget'));
         $result->setData('add_images', $this->scopeConfig->isSetFlag('cms/wysiwyg/add_image'));
@@ -81,5 +94,21 @@ class WysiwygConfigProviderPlugin
         $result->setData('plugins', array_values($plugins));
 
         return $result;
+    }
+
+    /**
+     * @throws ConfigurationMismatchException
+     */
+    private function getTinyMceVersionIdentifier(\Magento\Framework\DataObject $result): string
+    {
+        if (!empty($result->getData('tinymce'))) {
+            return 'tinymce';
+        }
+        if (!empty($result->getData('tinymce4'))) {
+            return 'tinymce4';
+        }
+        throw new ConfigurationMismatchException(
+            __('No supported version of TinyMCE found.')
+        );
     }
 }
